@@ -1,104 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Task details and media viewer">
-    
+
     <!-- Modern Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://therealtimex.github.io/rtlibrary/css/rt-dmview-css-min.css">
-    
+
     <style>
-       :root {
---color_theme_primary: red;
---color_theme_secondary: #6c757d;
---color_theme_accent: #ff4081;
---color_theme_success: #28a745;
---color_theme_info: #17a2b8;
---color_theme_warning: #ffc107;
---color_theme_danger: #dc3545;
---color_theme_background: #ffffff;
---color_theme_surface: #f8f9fa;
---color_theme_text_primary: #212529;
---color_theme_text_secondary: #6c757d;
---color_theme_text_disabled: #adb5bd;
---color_theme_neutral_light: #e9ecef;
---color_theme_neutral_medium: #ced4da;
---color_theme_neutral_dark: #495057;
---color_theme_border: #dee2e6;
---color_theme_focus: rgba(255, 0, 0, 0.25);
---color_theme_error_background: #f8d7da;
---color_theme_error_text: #721c24;
---color_theme_link: #007bff;
---color_theme_shadow: rgba(0, 0, 0, 0.15);
-}
-
-
-
-/* Add these styles inside the existing <style> tag */
-.tab-content {
-    height: 40vh; /* 40% of viewport height */
-}
-
-.tab-pane {
-    height: 100%; /* Make all tab panes same height */
-    overflow-y: auto; /* Add scrolling if content overflows */
-}
-
-.content-scroll {
-    height: 100%; /* Ensure content fills tab pane */
-}
-
-.media-container {
-    height: 100%; /* Make media container fill tab pane */
-}
-.content-scroll {
-    background-color: var(--color_theme_surface);
-    height: 100%;
-    overflow-y: auto;
-    padding: 1rem;
-}
+        :root {
+            --color_theme_primary: blue;
+            --color_theme_secondary: #6c757d;
+            --color_theme_accent: #ff4081;
+            --color_theme_success: #28a745;
+            --color_theme_info: #17a2b8;
+            --color_theme_warning: #ffc107;
+            --color_theme_danger: #dc3545;
+            --color_theme_background: #ffffff;
+            --color_theme_surface: #f8f9fa;
+            --color_theme_text_primary: #212529;
+            --color_theme_text_secondary: #6c757d;
+            --color_theme_text_disabled: #adb5bd;
+            --color_theme_neutral_light: #e9ecef;
+            --color_theme_neutral_medium: #ced4da;
+            --color_theme_neutral_dark: #495057;
+            --color_theme_border: #dee2e6;
+            --color_theme_focus: rgba(0, 0, 255, 0.25);
+            --color_theme_error_background: #f8d7da;
+            --color_theme_error_text: #721c24;
+            --color_theme_link: #007bff;
+            --color_theme_shadow: rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 
 <body>
     <main class="container">
-        <h1 class="visually-hidden">Task Details</h1>
-        
-        <div class="task-container">
-            <h2 class="text-center mb-4">
-                <span class="d-block">Task ID</span>
-                <span class="task-id">##task_id##</span>
-            </h2>
+        <div>
+            <h2 class="text-center" style="color: var(--color_theme_primary);">Task ID</h2>
+            <h4 class="text-center mb-4" style="color: var(--color_theme_primary);">##task_id##</h4>
 
             <div class="tab-container">
                 <nav>
-                    <ul class="nav nav-pills mb-3" id="taskTabs" role="tablist">
+                    <ul class="nav nav-pills mb-3" id="dmTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" 
-                                    id="info-tab" 
-                                    data-bs-toggle="tab" 
-                                    data-bs-target="#info-content" 
-                                    type="button" 
-                                    role="tab" 
-                                    aria-controls="info-content" 
-                                    aria-selected="true">
+                            <button class="nav-link active" id="tab1" data-bs-toggle="tab"
+                                data-bs-target="#info-content" type="button" role="tab" aria-controls="info-content"
+                                aria-selected="true">
                                 Information
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" 
-                                    id="media-tab" 
-                                    data-bs-toggle="tab" 
-                                    data-bs-target="#media-content" 
-                                    type="button" 
-                                    role="tab" 
-                                    aria-controls="media-content" 
-                                    aria-selected="false">
+                            <button class="nav-link" id="tab2" data-bs-toggle="tab" data-bs-target="#media-content"
+                                type="button" role="tab" aria-controls="media-content" aria-selected="false">
                                 Media/Documents
                             </button>
                         </li>
@@ -106,57 +62,38 @@
                 </nav>
 
                 <div class="tab-content" id="taskTabContent">
-                    <div class="tab-pane fade show active" 
-                         id="info-content" 
-                         role="tabpanel" 
-                         aria-labelledby="info-tab">
+                    <div class="tab-pane fade show active" id="info-content" role="tabpanel" aria-labelledby="tab1">
                         <div class="content-scroll">
-                            <section aria-label="Input Content">
-                                <h3 class="info-label">
-                                    <span aria-hidden="true">🌍</span> Input Content
-                                </h3>
-                                <p>##ai_context##</p>
-                            </section>
-
-                            <section aria-label="Input Files">
-                                <h3 class="info-label">
-                                    <span aria-hidden="true">📄</span> Input Content Files
-                                </h3>
-                                <p>##input_file_disp_en##</p>
-                            </section>
-
-                            <section aria-label="Action Details">
-                                <h3 class="info-label">
-                                    <span aria-hidden="true">🤖</span> Action
-                                </h3>
-                                <ul class="list-unstyled">
-                                    <li>##ai_action_name##</li>
-                                    <li>##ai_action_display_name##</li>
-                                    <li>##ai_action_text##</li>
-                                </ul>
-                            </section>
-
-                            <footer class="mt-4">
-                                <p class="mb-1">
-                                    <span aria-hidden="true">🔒</span> 
-                                    <span class="visually-hidden">ID:</span>
-                                    ##instanceID##
-                                </p>
-                                <p class="text-secondary">
-                                    <span aria-hidden="true">📅</span> 
-                                    Created at ##submission_date## by ##fullname##
-                                </p>
-                            </footer>
+                            <h4>
+                                <span aria-hidden="true">🌍</span> Input Content
+                            </h4>
+                            <p>##ai_context##</p>
+                            <h4>
+                                <span aria-hidden="true">📄</span> Input Content Files
+                            </h4>
+                            <p>##input_file_disp_en##</p>
+                            <h4>
+                                <span aria-hidden="true">🤖</span> Action
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li>##ai_action_name##</li>
+                                <li>##ai_action_display_name##</li>
+                                <li>##ai_action_text##</li>
+                            </ul>
+                            <p class="mb-1">
+                                <span aria-hidden="true">🔒</span>
+                                <span class="visually-hidden">ID:</span>
+                                ##instanceID##
+                            </p>
+                            <p class="text-secondary">
+                                <span aria-hidden="true">📅</span>
+                                Created at ##submission_date## by ##fullname##
+                            </p>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" 
-                         id="media-content" 
-                         role="tabpanel" 
-                         aria-labelledby="media-tab">
-                        <div class="media-container" 
-                             id="media-slider-container" 
-                             aria-label="Media Gallery">
+                    <div class="tab-pane fade" id="media-content" role="tabpanel" aria-labelledby="tab2">
+                        <div class="media-container" id="media-slider-container" aria-label="Media Gallery">
                         </div>
                     </div>
                 </div>
@@ -165,17 +102,17 @@
     </main>
 
     <!-- Modern JS Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
-            crossorigin="anonymous" 
-            defer></script>
-    <script src="https://therealtimex.github.io/rtlibrary/js/mediaSlider.js">defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+        defer></script>
+    <script src="https://therealtimex.github.io/rtlibrary/js/mediaSlider.js">defer ></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const crmFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-            const crmFilesArray = crmFiles.split(";");
-            new MediaSlider('media-slider-container', crmFilesArray);
-        });
+            document.addEventListener('DOMContentLoaded', () => {
+                const crmFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+                const crmFilesArray = crmFiles.split(";");
+                new MediaSlider('media-slider-container', crmFilesArray);
+            });
     </script>
 </body>
+
 </html>
