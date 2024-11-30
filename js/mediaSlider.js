@@ -114,16 +114,16 @@ class MediaSlider {
         </div>`;
         switch(mediaType) {
             case 'image':
-                return `<img src="${url}" alt="Slider Image" class="swiper-lazy" onerror="this.parentElement.innerHTML='${fallbackMessage}'">`;
+                return `<img src="${url}" alt="Slider Image" class="swiper-lazy" onerror="this.outerHTML='${fallbackMessage}'">`;
             case 'audio':
-                return `<audio controls onerror="this.parentElement.innerHTML='${fallbackMessage}'"><source src="${url}" type="audio/${url.split('.').pop()}"></audio>`;
+                return `<audio controls onerror="this.outerHTML='${fallbackMessage}'"><source src="${url}" type="audio/${url.split('.').pop()}"></audio>`;
             case 'video':
-                return `<video controls width="100%" onerror="this.parentElement.innerHTML='${fallbackMessage}'"><source src="${url}" type="video/${url.split('.').pop()}"></video>`;
+                return `<video controls width="100%" onerror="this.outerHTML='${fallbackMessage}'"><source src="${url}" type="video/${url.split('.').pop()}"></video>`;
             case 'pdf':
-                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true" class="pdf-frame" onerror="this.parentElement.innerHTML='${fallbackMessage}'"></iframe>`;
+                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true" class="pdf-frame" onerror="this.outerHTML='${fallbackMessage}'"></iframe>`;
             case 'office':
                 return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true" class="office-frame" 
-                    onerror="this.parentElement.innerHTML='${fallbackMessage}'"></iframe>`;
+                    onerror="this.outerHTML='${fallbackMessage}'"></iframe>`;
             default:
                 return `<div>Unsupported media type</div>`;
         }
