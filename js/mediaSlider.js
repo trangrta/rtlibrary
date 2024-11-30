@@ -17,7 +17,6 @@ class MediaSlider {
             <style>
                 .swiper {
                     width: 100%;
-                    max-width: 800px;
                     height: 100%;
                     margin: auto;
                     border-radius: 10px;
