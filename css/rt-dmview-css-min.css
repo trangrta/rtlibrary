@@ -174,7 +174,7 @@ label::before {
 .nav-pills .nav-link {
     background-color: var(--color_theme_neutral_light);
     color: var(--color_theme_text_secondary);
-    padding: 12px var(--spacing-medium);
+    padding: var(--spacing-large) var(--spacing-large);
     display: flex;
     align-items: center;
     justify-content: center;
