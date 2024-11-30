@@ -1,0 +1,214 @@
+body {
+    padding: 5px;
+}
+
+/* Center Item Styles */
+.dmitem-center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Chip Styles */
+.dmitem-chip {
+    border-radius: 25px;
+    border: 2px solid var(--color_theme_neutral_medium);
+    padding: 10px;
+}
+
+.dmitem-chip-fill {
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.dmitem-grey {
+    background-color: var(--color_theme_neutral_medium);
+    padding: 10px;
+}
+
+/* Box Sizing Reset */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* View Container Styles */
+.dmview-inner {
+    max-width: 1000px;
+    margin: auto;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+}
+
+/* Status Styles */
+.dmview-failure {
+    color: var(--color_theme_danger);
+}
+
+.dmview-success {
+    color: var(--color_theme_success);
+}
+
+/* Scroll Container Styles */
+.dmview-scroll-container {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 600px;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;
+    background: var(--color_theme_neutral_light);
+    border: solid 2px var(--color_theme_neutral_medium);
+    font-size: 0;
+    margin-bottom: 50px;
+}
+
+.dmview-scroll-container .dmview-scroll-section {
+    -webkit-overflow-scrolling: touch;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+    border: solid 2px var(--color_theme_neutral_medium);
+    white-space: nowrap;
+}
+
+/* Different Size Scroll Container */
+.dmview-scroll-container.dmview-diff-size {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-destination: 50% 0%;
+    padding: 10px 0;
+}
+
+.dmview-scroll-container.dmview-diff-size .dmview-scroll-section {
+    width: auto;
+    height: 100%;
+    margin-right: 10px;
+    scroll-snap-coordinate: 50% 0%;
+}
+
+.dmview-scroll-container.dmview-diff-size .dmview-scroll-section:first-child {
+    scroll-snap-coordinate: 0% 0%, 50% 0%;
+    margin-left: 10px;
+}
+
+.dmview-scroll-container.dmview-diff-size .dmview-scroll-section:last-child {
+    scroll-snap-coordinate: 50% 0%, 100% 0%;
+}
+
+/* Tab Pill Styles */
+#dm-tab-pill .nav-pills > li > a {
+    border-radius: 6px 6px 0 0;
+}
+
+#dm-tab-pill .tab-content {
+    background-color: var(--color_theme_background);
+    padding: 0 0;
+}
+
+#dm-tab-pill .nav-pills > li > a {
+    border-radius: 6px 6px 0 0;
+    background-color: var(__color_theme_surface); /* Inactive tab background */
+    color: var(__color_theme_link); /* Inactive tab text */
+}
+
+#dm-tab-pill .nav-pills > li.active > a,
+#dm-tab-pill .nav-pills > li.active > a:focus,
+#dm-tab-pill .nav-pills > li.active > a:hover {
+    background-color: var(__color_theme_accent); /* Active tab background */
+    color: var(__color_theme_text_primary); /* Active tab text */
+}
+
+#dm-tab-pill .nav-pills > li > a:hover {
+    background-color: var(__color_theme_surface); /* Hover tab background */
+    color: var(__color_theme_accent); /* Hover tab text */
+}
+
+
+/* Input and Label Styles */
+input {
+    display: none;
+    visibility: hidden;
+}
+
+label {
+    display: block;
+    padding: .5em;
+    text-align: center;
+    border-bottom: 1px solid var(--color_theme_neutral_medium);
+    color: var(--color_theme_primary);
+}
+
+label:hover {
+    color: var(--color_theme_text_primary);
+}
+
+label::before {
+    font-family: Consolas, monaco, monospace;
+    font-weight: bold;
+    font-size: 15px;
+    content: "+";
+    vertical-align: text-top;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    background: var(--color_theme_background);
+}
+
+
+   /* Tab Navigation Styles */
+   .nav-pills .nav-link {
+    background-color: var(--color_theme_surface);  /* Inactive tabs use secondary color */
+    color: var(--color_theme_primary);                     /* White text for contrast */
+   /* margin-right: 0.5rem;               /* Space between tabs */
+   /* transition: all 0.2s ease-in-out;   /* Smooth transition for interactions */
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--color_theme_primary);    /* Active tab uses primary red */
+    color: var(--color_theme_text_primary);                      /* White text for contrast */
+}
+
+/* Hover states */
+.nav-pills .nav-link:hover {
+    opacity: 0.9;                        /* Subtle hover effect */
+    transform: translateY(-1px);         /* Slight lift effect */
+}
+
+/* Focus visible styles */
+.nav-pills .nav-link:focus-visible {
+    outline: 2px solid var(--color_theme_primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color_theme_focus);
+}
+
+/* Active state enhancements */
+/*.nav-pills .nav-link.active:hover {
+    background-color: #c82333;           /* Darker red for hover */
+/*}
+
+/* Additional styles to maintain visual hierarchy */
+.task-id {
+    color: var(--color_theme_primary);
+}
+
+.content-scroll {
+    border: 1px solid var(--color_theme_border);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Ensure proper spacing for tab container */
+.tab-container {
+    margin-top: 2rem;
+}
+
+.nav-pills {
+    margin-bottom: 1rem;
+    gap: 0.5rem;                         /* Consistent spacing between tabs */
+}
