@@ -175,11 +175,13 @@ label::before {
   }
   
   .dmview-title {
+    text-align: center;
     color: var(--color_theme_primary);
     margin-bottom: var(--size-spacing-small);
   }
   
   .dmview-subtitle {
+    text-align: center;
     color: var(--color_theme_primary);
   }
 
