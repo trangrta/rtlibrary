@@ -17,6 +17,7 @@ class MediaSlider {
             <style>
                 .swiper {
                     width: 100%;
+                    max-width: 800px;
                     height: 100%;
                     margin: auto;
                     border-radius: 10px;
@@ -106,24 +107,17 @@ class MediaSlider {
 
     createMediaElement(url) {
         const mediaType = this.detectMediaType(url);
-        const fallbackMessage = `
-        <div class="media-error">
-            <h2>404</h2>
-            <p>Media file unavailable</p>
-            <small>Please check your internet connection</small>
-        </div>`;
         switch(mediaType) {
             case 'image':
-                return `<img src="${url}" alt="Slider Image" class="swiper-lazy" onerror="this.outerHTML='${fallbackMessage}'">`;
+                return `<img src="${url}" alt="Slide">`;
             case 'audio':
-                return `<audio controls onerror="this.outerHTML='${fallbackMessage}'"><source src="${url}" type="audio/${url.split('.').pop()}"></audio>`;
+                return `<audio controls><source src="${url}" type="audio/${url.split('.').pop()}"></audio>`;
             case 'video':
-                return `<video controls width="100%" onerror="this.outerHTML='${fallbackMessage}'"><source src="${url}" type="video/${url.split('.').pop()}"></video>`;
+                return `<video controls width="100%"><source src="${url}" type="video/${url.split('.').pop()}"></video>`;
             case 'pdf':
-                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true" class="pdf-frame" onerror="this.outerHTML='${fallbackMessage}'"></iframe>`;
+                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
             case 'office':
-                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true" class="office-frame" 
-                    onerror="this.outerHTML='${fallbackMessage}'"></iframe>`;
+                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
             default:
                 return `<div>Unsupported media type</div>`;
         }
