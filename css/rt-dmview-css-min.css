@@ -169,6 +169,23 @@ label::before {
     background: var(--color_theme_background);
 }
 
+.dmview-header {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+  }
+  
+  .dmview-title {
+    color: var(--color_theme_primary);
+    font-family: var(--font-family-headers);
+    font-size: var(--font-size-large);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .dmview-subtitle {
+    color: var(--color_theme_primary);
+    font-family: var(--font-family-headers);
+    font-size: var(--font-size-medium);
+  }
 
 /* Tab Navigation Styles */
 .nav-pills .nav-link {
