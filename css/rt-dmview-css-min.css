@@ -174,7 +174,7 @@ label::before {
 .nav-pills .nav-link {
     background-color: var(--color_theme_neutral_light);
     color: var(--color_theme_text_secondary);
-    padding: 8px 8px;
+    padding: var(--size-spacing-small) var(--size-spacing-small);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,18 +184,14 @@ label::before {
 
 .nav-pills .nav-link.active {
     background-color: var(--color_theme_accent);
-    /* Active tab uses primary red */
     color: var(--color_theme_text_primary);
-    /* White text for contrast */
 }
 
 /* Hover states */
 .nav-pills .nav-link:hover {
     background-color: var(--color_theme_neutral_medium);
-    opacity: 0.9;
-    /* Subtle hover effect */
-    transition: background-color 0.2s ease;
-    /* Slight lift effect */
+    opacity: 0.9;                               /* Subtle hover effect */
+    transition: background-color 0.2s ease;     /* Slight lift effect */
 }
 
 /* Focus visible styles */
