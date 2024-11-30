@@ -174,7 +174,11 @@ label::before {
 .nav-pills .nav-link {
     background-color: var(--color_theme_neutral_light);
     color: var(--color_theme_text_secondary);
-    padding: var(--spacing-small);
+    min-height: 48px; /* Follow minimum touch target size */
+    padding: var(--spacing-small) var(--spacing-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px 4px 0 0;
     border-bottom: 2px solid transparent;
 }
