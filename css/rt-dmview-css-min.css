@@ -171,20 +171,16 @@ label::before {
 
 .dmview-header {
     text-align: center;
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--size-spacing-large);
   }
   
   .dmview-title {
     color: var(--color_theme_primary);
-    font-family: var(--font-family-headers);
-    font-size: var(--font-size-large);
-    margin-bottom: var(--spacing-small);
+    margin-bottom: var(--size-spacing-small);
   }
   
   .dmview-subtitle {
     color: var(--color_theme_primary);
-    font-family: var(--font-family-headers);
-    font-size: var(--font-size-medium);
   }
 
 /* Tab Navigation Styles */
