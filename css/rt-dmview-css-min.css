@@ -194,10 +194,6 @@ label::before {
 /*}
 
 /* Additional styles to maintain visual hierarchy */
-.task-id {
-    color: var(--color_theme_primary);
-}
-
 .content-scroll {
     border: 1px solid var(--color_theme_border);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
