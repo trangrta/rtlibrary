@@ -112,7 +112,7 @@
             </div>
             <div class="tab-pane fade" id="map-content" role="tabpanel" aria-labelledby="tab3">
                 <iframe tabindex="-1" width=100% height=100% style="border:0;" loading="lazy" allowfullscreen
-                    src="https://maps.google.com/maps?key=AIzaSyCZ9K-IVs5Q2leQsh19KF-oYRvL9lJGzJQ&q=##crm_gpsLatitude##,##crm_gpsLongitude##&z=14&output=embed"></iframe>
+                    src="https://maps.google.com/maps?key=zaSyCZ9K-IVs5Q2leQsh19KF-oYRvL9lJGzJQ&q=##crm_gpsLatitude##,##crm_gpsLongitude##&z=14&output=embed"></iframe>
             </div>
         </div>
     </div>
@@ -128,15 +128,16 @@
             const listFilesArray = listFiles.split(";");
             new MediaSlider('media-slider-container', listFilesArray);
 
-            // Tab initialization
-            const triggerTabList = document.querySelectorAll('[data-bs-toggle="tab"]');
-            triggerTabList.forEach(triggerEl => new bootstrap.Tab(triggerEl));
+            document.querySelectorAll('.tab-container [role="tab"]').forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // Remove active class from all tabs and panes
+                    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                    document.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', 'false'));
 
-            // Handle tab events for mobile
-            const tabElements = document.querySelectorAll('button[data-bs-toggle="tab"]');
-            tabElements.forEach(tabEl => {
-                tabEl.addEventListener('shown.bs.tab', event => {
-                    event.target.focus();
+                    // Add active class to clicked tab's corresponding pane
+                    const targetId = this.getAttribute('aria-controls');
+                    document.getElementById(targetId).classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
                 });
             });
         });
