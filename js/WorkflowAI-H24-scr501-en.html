@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Modern Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://therealtimex.github.io/rtlibrary/css/rt-dmview-css-min.css">
+
+    <style>
+        :root {
+            --color_theme_primary: #4B0082;
+            --color_theme_secondary: #7986CB;
+            --color_theme_accent: #FF9800;
+            --color_theme_success: #4CAF50;
+            --color_theme_info: #03A9F4;
+            --color_theme_warning: #FFA000;
+            --color_theme_danger: #F44336;
+            --color_theme_background: #FFFFFF;
+            --color_theme_surface: #F0F0FF;
+            --color_theme_text_primary: #212121;
+            --color_theme_text_secondary: #333333;
+            --color_theme_text_disabled: #767676;
+            --color_theme_neutral_light: #e9ecef;
+            --color_theme_neutral_medium: #c0c4c9;
+            --color_theme_neutral_dark: #495057;
+            --color_theme_border: #dee2e6;
+            --color_theme_focus: rgba(75, 0, 130, 0.4);
+            --color_theme_error_background: #FFE8E6;
+            --color_theme_error_text: #D32F2F;
+            --color_theme_link: #0056b3;
+            --color_theme_shadow: rgba(0, 0, 0, 0.15);
+
+            --size-spacing-nano: 0.5rem;
+            /* 8px */
+            --size-spacing-micro: 0.625rem;
+            /* 10px */
+            --size-spacing-small: 0.75rem;
+            /* 12px */
+            --size-spacing-medium: 1rem;
+            /* 16px */
+            --size-spacing-large: 2rem;
+            /* 32px */
+            --size-spacing-xl: 2.5rem;
+            /* 40px */
+            --size-spacing-xxl: 3rem;
+            /* 48px */
+            --size-spacing-xxxl: 3.5rem;
+            /* 56px */
+            --size-spacing-mega: 4rem;
+            /* 64px */
+            --size-spacing-giga: 5rem;
+            /* 80px */
+            --size-spacing-base: var(--size-spacing-medium);
+
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container"">
+            <div>
+                <h2 class=" dmview-title">##store_lb##</h2>
+
+        <div class="tab-container">
+            <nav>
+                <ul class="nav nav-pills mb-3" id="dmTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab1" data-bs-toggle="tab" data-bs-target="#info-content"
+                            type="button" role="tab" aria-controls="info-content" aria-selected="true">
+                            👤 Profile
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab2" data-bs-toggle="tab" data-bs-target="#media-content"
+                            type="button" role="tab" aria-controls="media-content" aria-selected="false">
+                            💼 Documents
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab3" data-bs-toggle="tab" data-bs-target="#map-content"
+                            type="button" role="tab" aria-controls="map-content" aria-selected="false">
+                            📍 Maps
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="tab-content" id="TabContent">
+                <div class="tab-pane fade show active" id="info-content" role="tabpanel" aria-labelledby="tab1">
+                    <div class="content-scroll">
+                        <p class="mb-1">
+                            <span aria-hidden="true">👤</span> ##crm_info_en##<br>##crm_desp##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">✅</span> Care status: ##crm_interact_status##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🏷</span> Classifying label: ##customer_status_lb##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🔗</span> Source: ##crm_source_ct##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🆔</span> ID: ##store_id##
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="media-content" role="tabpanel" aria-labelledby="tab2">
+                    <div class="media-container" id="media-slider-container" aria-label="Media Gallery">
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="map-content" role="tabpanel" aria-labelledby="tab3">
+                    <iframe tabindex="-1" width=100% height=100% style="border:0;" loading="lazy" allowfullscreen
+                        src="https://maps.google.com/maps?key=AIzaSyCZ9K-IVs5Q2leQsh19KF-oYRvL9lJGzJQ&q=##crm_gpsLatitude##,##crm_gpsLongitude##&z=14&output=embed"></iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Modern JS Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+        defer></script>
+    <script src="https://therealtimex.github.io/rtlibrary/js/mediaSlider.js">defer ></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+                const listFilesArray = listFiles.split(";");
+                new MediaSlider('media-slider-container', listFilesArray);
+
+                // Initialize Bootstrap tabs
+                const triggerTabList = document.querySelectorAll('#dmTabs button');
+                const tabList = [...triggerTabList].map(triggerEl => {
+                    const tabTrigger = new bootstrap.Tab(triggerEl);
+
+                    triggerEl.addEventListener('click', event => {
+                        event.preventDefault();
+                        tabTrigger.show();
+                    });
+
+                    return tabTrigger;
+                });
+            });
+    </script>
+</body>
+
+</html>
