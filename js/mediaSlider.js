@@ -118,7 +118,7 @@ class MediaSlider {
             case 'office':
                 return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
             default:
-                return `<div>Unsupported media type</div>`;
+                return `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
         }
     }
 
