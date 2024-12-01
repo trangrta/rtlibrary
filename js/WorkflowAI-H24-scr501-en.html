@@ -68,20 +68,20 @@
             <nav>
                 <ul class="nav nav-pills mb-3" id="dmTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab1" data-bs-toggle="tab" data-bs-target="#info-content"
+                        <button class="nav-link active" id="tab1" data-bs-toggle="tab" href="#info-content"
                             type="button" role="tab" aria-controls="info-content" aria-selected="true">
                             👤 Profile
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab2" data-bs-toggle="tab" data-bs-target="#media-content"
-                            type="button" role="tab" aria-controls="media-content" aria-selected="false">
+                        <button class="nav-link" id="tab2" data-bs-toggle="tab" hreft="#media-content" type="button"
+                            role="tab" aria-controls="media-content" aria-selected="false">
                             💼 Documents
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab3" data-bs-toggle="tab" data-bs-target="#map-content"
-                            type="button" role="tab" aria-controls="map-content" aria-selected="false">
+                        <button class="nav-link" id="tab3" data-bs-toggle="tab" href="#map-content" type="button"
+                            role="tab" aria-controls="map-content" aria-selected="false">
                             📍 Maps
                         </button>
                     </li>
@@ -133,19 +133,7 @@
                 const listFilesArray = listFiles.split(";");
                 new MediaSlider('media-slider-container', listFilesArray);
 
-                // Initialize Bootstrap tabs
-                const triggerTabList = document.querySelectorAll('#dmTabs button');
-                const tabList = [...triggerTabList].map(triggerEl => {
-                    const tabTrigger = new bootstrap.Tab(triggerEl);
-
-                    triggerEl.addEventListener('click', event => {
-                        event.preventDefault();
-                        tabTrigger.show();
-                    });
-
-                    return tabTrigger;
-                });
-            });
+            });    
     </script>
 </body>
 
