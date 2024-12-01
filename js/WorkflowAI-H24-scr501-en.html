@@ -133,17 +133,18 @@
                 const listFilesArray = listFiles.split(";");
                 new MediaSlider('media-slider-container', listFilesArray);
 
-                // Add mobile event handling here
-                // Add touch event handling for mobile
+                // Add delayed touch handling
                 const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
                 tabButtons.forEach(button => {
                     button.addEventListener('touchstart', (e) => {
                         e.preventDefault();
-                        const tab = new bootstrap.Tab(button);
-                        tab.show();
+                        setTimeout(() => {
+                            const tab = new bootstrap.Tab(button);
+                            tab.show();
+                        }, 200);
                     }, { passive: false });
                 });
-            });    
+            }); 
     </script>
 </body>
 
