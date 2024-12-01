@@ -195,6 +195,8 @@ label::before {
     justify-content: center;
     border-radius: 4px 4px 0 0;
     border-bottom: 2px solid transparent;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-pills .nav-link.active {
