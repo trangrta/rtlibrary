@@ -135,17 +135,17 @@
                     const listFilesArray = listFiles.split(";");
                     new MediaSlider('media-slider-container', listFilesArray);
 
-                    // Use Bootstrap's tab events instead
-                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
-                    tabButtons.forEach(button => {
-                        button.addEventListener('shown.bs.tab', (e) => {
-                            tabButtons.forEach(btn => {
-                                btn.classList.remove('active');
-                                btn.setAttribute('aria-selected', 'false');
-                            });
-                            e.target.classList.add('active');
-                            e.target.setAttribute('aria-selected', 'true');
+                    // Initialize Bootstrap tabs
+                    const triggerTabList = document.querySelectorAll('#dmTabs button');
+                    const tabList = [...triggerTabList].map(triggerEl => {
+                        const tabTrigger = new bootstrap.Tab(triggerEl);
+
+                        triggerEl.addEventListener('click', event => {
+                            event.preventDefault();
+                            tabTrigger.show();
                         });
+
+                        return tabTrigger;
                     });
                 });
         </script>
@@ -290,17 +290,17 @@
                     const listFilesArray = listFiles.split(";");
                     new MediaSlider('media-slider-container', listFilesArray);
 
-                    // Use Bootstrap's tab events instead
-                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
-                    tabButtons.forEach(button => {
-                        button.addEventListener('shown.bs.tab', (e) => {
-                            tabButtons.forEach(btn => {
-                                btn.classList.remove('active');
-                                btn.setAttribute('aria-selected', 'false');
-                            });
-                            e.target.classList.add('active');
-                            e.target.setAttribute('aria-selected', 'true');
+                    // Initialize Bootstrap tabs
+                    const triggerTabList = document.querySelectorAll('#dmTabs button');
+                    const tabList = [...triggerTabList].map(triggerEl => {
+                        const tabTrigger = new bootstrap.Tab(triggerEl);
+
+                        triggerEl.addEventListener('click', event => {
+                            event.preventDefault();
+                            tabTrigger.show();
                         });
+
+                        return tabTrigger;
                     });
                 });
         </script>
