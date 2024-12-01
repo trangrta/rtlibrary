@@ -200,8 +200,8 @@ label::before {
 }
 
 .nav-pills .nav-link.active {
-    background-color: var(--color_theme_accent);
-    color: var(--color_theme_text_primary) !important;
+    background-color: var(--color_theme_accent) !important;
+    color: var(--color_theme_text_primary);
     position: relative;
 }
 
