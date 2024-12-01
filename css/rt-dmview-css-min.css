@@ -201,7 +201,7 @@ label::before {
 
 .nav-pills .nav-link.active {
     background-color: var(--color_theme_accent);
-    color: var(--color_theme_text_primary);
+    color: var(--color_theme_text_primary) !important;
     position: relative;
 }
 
