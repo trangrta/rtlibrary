@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customer Profile View</title>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://therealtimex.github.io">
+    <link rel="preconnect" href="https://maps.google.com">
+
+    <!-- Core styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://therealtimex.github.io/rtlibrary/css/rt-dmview-css-min.css">
+
+    <style>
+        :root {
+            --color_theme_primary: #4B0082;
+            --color_theme_secondary: #7986CB;
+            --color_theme_accent: #FF9800;
+            --color_theme_success: #4CAF50;
+            --color_theme_info: #03A9F4;
+            --color_theme_warning: #FFA000;
+            --color_theme_danger: #F44336;
+            --color_theme_background: #FFFFFF;
+            --color_theme_surface: #F0F0FF;
+            --color_theme_text_primary: #212121;
+            --color_theme_text_secondary: #333333;
+            --color_theme_text_disabled: #767676;
+            --color_theme_neutral_light: #e9ecef;
+            --color_theme_neutral_medium: #c0c4c9;
+            --color_theme_neutral_dark: #495057;
+            --color_theme_border: #dee2e6;
+            --color_theme_focus: rgba(75, 0, 130, 0.4);
+            --color_theme_error_background: #FFE8E6;
+            --color_theme_error_text: #D32F2F;
+            --color_theme_link: #0056b3;
+            --color_theme_shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile optimizations */
+        .nav-link {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 44px;
+            min-width: 44px;
+            padding: 0.75rem 1rem;
+        }
+
+        /* Accessibility focus styles */
+        .nav-link:focus-visible {
+            outline: 3px solid var(--color_theme_focus);
+            outline-offset: 2px;
+        }
+
+        /* Responsive spacing */
+        @media (max-width: 768px) {
+            :root {
+                --size-spacing-base: 0.875rem;
+            }
+            .nav-link {
+                padding: 0.625rem 0.875rem;
+            }
+        }
+
+        /* No-JS fallback */
+        .no-js .tab-content > div {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <div class="alert alert-warning" role="alert">
+            This application works best with JavaScript enabled.
+        </div>
+    </noscript>
+
+    <div class="container">
+        <h2 class="dmview-title">##store_lb##</h2>
+
+        <div class="tab-container" id="dm-tab-pill">
+            <ul class="nav nav-pills mb-3" id="dmTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab1" data-bs-toggle="tab" data-bs-target="#info-content"
+                        type="button" role="tab" aria-controls="info-content" aria-selected="true">
+                        <span aria-hidden="true">👤</span> Profile
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab2" data-bs-toggle="tab" data-bs-target="#media-content"
+                        type="button" role="tab" aria-controls="media-content" aria-selected="false">
+                        <span aria-hidden="true">💼</span> Documents
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab3" data-bs-toggle="tab" data-bs-target="#map-content"
+                        type="button" role="tab" aria-controls="map-content" aria-selected="false">
+                        <span aria-hidden="true">📍</span> Maps
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="TabContent">
+                <div class="tab-pane fade show active" id="info-content" role="tabpanel" aria-labelledby="tab1">
+                    <div class="content-scroll">
+                        <p class="mb-1">
+                            <span aria-hidden="true">👤</span> ##crm_info_en##<br>##crm_desp##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">✅</span> Care status: ##crm_interact_status##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🏷</span> Classifying label: ##customer_status_lb##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🔗</span> Source: ##crm_source_ct##
+                        </p>
+                        <p class="mb-1">
+                            <span aria-hidden="true">🆔</span> ID: ##store_id##
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="media-content" role="tabpanel" aria-labelledby="tab2">
+                    <div class="media-container" id="media-slider-container" aria-label="Media Gallery">
+                        <div class="placeholder">Loading media content...</div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="map-content" role="tabpanel" aria-labelledby="tab3">
+                    <div id="map-container" class="map-responsive">
+                        <!-- Map iframe will be injected here via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <!-- Initialize components -->
+    <script>
+        document.documentElement.classList.remove('no-js');
+
+        // Utility functions
+        const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        // Main initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab initialization
+            const triggerTabList = document.querySelectorAll('[data-bs-toggle="tab"]');
+            const tabs = [...triggerTabList].map(triggerEl => new bootstrap.Tab(triggerEl));
+
+            // Handle tab events
+            triggerTabList.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', event => {
+                    event.target.focus();
+                    // Lazy load content based on active tab
+                    const targetId = event.target.getAttribute('data-bs-target').substring(1);
+                    loadTabContent(targetId);
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const currentTab = document.querySelector('[data-bs-toggle="tab"].active');
+                    const tabList = [...triggerTabList];
+                    const currentIndex = tabList.indexOf(currentTab);
+                    let newIndex = currentIndex + (e.key === 'ArrowRight' ? 1 : -1);
+                    
+                    if (newIndex >= tabList.length) newIndex = 0;
+                    if (newIndex < 0) newIndex = tabList.length - 1;
+                    
+                    tabs[newIndex].show();
+                }
+            });
+
+            // Initial content load
+            loadTabContent('info-content');
+        });
+
+        // Lazy load content based on tab
+        function loadTabContent(tabId) {
+            switch(tabId) {
+                case 'media-content':
+                    loadMediaSlider();
+                    break;
+                case 'map-content':
+                    loadMap();
+                    break;
+            }
+        }
+
+        // Lazy load MediaSlider
+        function loadMediaSlider() {
+            if (!window.MediaSlider) {
+                const script = document.createElement('script');
+                script.src = 'https://therealtimex.github.io/rtlibrary/js/mediaSlider.js';
+                script.onload = initializeMediaSlider;
+                document.body.appendChild(script);
+            } else {
+                initializeMediaSlider();
+            }
+        }
+
+        function initializeMediaSlider() {
+            try {
+                const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+                const listFilesArray = listFiles.split(";");
+                new MediaSlider('media-slider-container', listFilesArray);
+            } catch (error) {
+                console.error('Failed to initialize MediaSlider:', error);
+                document.getElementById('media-slider-container').innerHTML = 
+                    '<div class="alert alert-danger">Failed to load media content</div>';
+            }
+        }
+
+        // Lazy load Map
+        function loadMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (!mapContainer.querySelector('iframe')) {
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('tabindex', '-1');
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = '0';
+                iframe.setAttribute('loading', 'lazy');
+                iframe.setAttribute('allowfullscreen', '');
+                // Note: API key should be handled server-side
+                iframe.src = `https://maps.google.com/maps?q=##crm_gpsLatitude##,##crm_gpsLongitude##&z=14&output=embed`;
+                mapContainer.appendChild(iframe);
+            }
+        }
+    </script>
+</body>
+</html>
