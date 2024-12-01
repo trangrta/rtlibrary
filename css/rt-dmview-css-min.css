@@ -269,3 +269,8 @@ label::before {
     padding: var(--spacing-medium);
     margin: var(--spacing-small);
 }
+
+.no-js .tab-content > div {
+    display: block;
+    opacity: 1;
+}
