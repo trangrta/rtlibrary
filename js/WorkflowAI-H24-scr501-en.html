@@ -134,16 +134,17 @@
                 new MediaSlider('media-slider-container', listFilesArray);
 
                 // Add mobile event handling here
+                // Add touch event handling for mobile
                 const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
-
                 tabButtons.forEach(button => {
                     button.addEventListener('touchstart', (e) => {
                         e.preventDefault();
-                        const target = document.querySelector(button.getAttribute('href'));
-                        bootstrap.Tab.getOrCreateInstance(button).show();
-                    });
+                        const tab = new bootstrap.Tab(button);
+                        tab.show();
+                    }, { passive: false });
                 });
-            });    </script>
+            });    
+    </script>
 </body>
 
 </html>
