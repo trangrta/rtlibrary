@@ -133,8 +133,17 @@
                 const listFilesArray = listFiles.split(";");
                 new MediaSlider('media-slider-container', listFilesArray);
 
-            });    
-    </script>
+                // Add mobile event handling here
+                const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(button.getAttribute('href'));
+                        bootstrap.Tab.getOrCreateInstance(button).show();
+                    });
+                });
+            });    </script>
 </body>
 
 </html>
