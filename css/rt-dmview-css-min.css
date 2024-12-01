@@ -195,7 +195,6 @@ label::before {
     justify-content: center;
     border-radius: 4px 4px 0 0;
     border-bottom: 2px solid transparent;
-    cursor: pointer;
 }
 
 .nav-pills .nav-link.active {

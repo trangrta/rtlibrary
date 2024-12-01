@@ -133,37 +133,6 @@
                 const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
                 const listFilesArray = listFiles.split(";");
                 new MediaSlider('media-slider-container', listFilesArray);
-
-                // Initialize tabs with proper mobile handling
-                const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
-
-                const handleTabActivation = (event) => {
-                    // Prevent default behavior
-                    event.preventDefault();
-                    event.stopPropagation();
-
-                    // Remove active class from all tabs
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                        btn.setAttribute('aria-selected', 'false');
-                    });
-
-                    // Add active class to clicked tab
-                    const targetTab = event.currentTarget;
-                    targetTab.classList.add('active');
-                    targetTab.setAttribute('aria-selected', 'true');
-
-                    // Show tab content using Bootstrap Tab API
-                    const tab = new bootstrap.Tab(targetTab);
-                    tab.show();
-                };
-
-                // Add both touch and click handlers
-                tabButtons.forEach(button => {
-                    ['touchstart', 'click'].forEach(eventType => {
-                        button.addEventListener(eventType, handleTabActivation, { passive: false });
-                    });
-                });
             });
     </script>
 </body>
