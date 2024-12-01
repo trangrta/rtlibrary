@@ -127,6 +127,12 @@
                 const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
                 const listFilesArray = listFiles.split(";");
                 new MediaSlider('media-slider-container', listFilesArray);
+                document.addEventListener('DOMContentLoaded', function () {
+                    const triggerTabList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tab"]'));
+                    triggerTabList.forEach(function (triggerEl) {
+                        new bootstrap.Tab(triggerEl);
+                    });
+                });
             });
     </script>
 </body>
