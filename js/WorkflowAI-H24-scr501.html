@@ -134,18 +134,17 @@
                     const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
                     const listFilesArray = listFiles.split(";");
                     new MediaSlider('media-slider-container', listFilesArray);
-                    // Specifically target tab buttons in the nav-pills
-                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
 
+                    // Use Bootstrap's tab events instead
+                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
                     tabButtons.forEach(button => {
-                        button.addEventListener('click', (e) => {
+                        button.addEventListener('shown.bs.tab', (e) => {
                             tabButtons.forEach(btn => {
                                 btn.classList.remove('active');
                                 btn.setAttribute('aria-selected', 'false');
                             });
-
-                            e.currentTarget.classList.add('active');
-                            e.currentTarget.setAttribute('aria-selected', 'true');
+                            e.target.classList.add('active');
+                            e.target.setAttribute('aria-selected', 'true');
                         });
                     });
                 });
@@ -290,18 +289,17 @@
                     const listFiles = "https://img.icons8.com/ios-filled/50/youtube-squared.png;https://img.icons8.com/arcade/64/youtube-squared.png;https://img.icons8.com/officel/50/facebook-new.png;https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf;https://filesamples.com/samples/document/docx/sample3.docx;https://www.w3resource.com/python-exercises/pandas/excel/SaleData.xlsx;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
                     const listFilesArray = listFiles.split(";");
                     new MediaSlider('media-slider-container', listFilesArray);
-                    // Specifically target tab buttons in the nav-pills
-                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
 
+                    // Use Bootstrap's tab events instead
+                    const tabButtons = document.querySelectorAll('#dmTabs .nav-link[role="tab"]');
                     tabButtons.forEach(button => {
-                        button.addEventListener('click', (e) => {
+                        button.addEventListener('shown.bs.tab', (e) => {
                             tabButtons.forEach(btn => {
                                 btn.classList.remove('active');
                                 btn.setAttribute('aria-selected', 'false');
                             });
-
-                            e.currentTarget.classList.add('active');
-                            e.currentTarget.setAttribute('aria-selected', 'true');
+                            e.target.classList.add('active');
+                            e.target.setAttribute('aria-selected', 'true');
                         });
                     });
                 });
