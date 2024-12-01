@@ -41,31 +41,6 @@
             --color_theme_shadow: rgba(0, 0, 0, 0.15);
         }
 
-        /* Mobile optimizations */
-        .nav-link {
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            min-height: 44px;
-            min-width: 44px;
-            padding: 0.75rem 1rem;
-        }
-
-        /* Accessibility focus styles */
-        .nav-link:focus-visible {
-            outline: 3px solid var(--color_theme_focus);
-            outline-offset: 2px;
-        }
-
-        /* Responsive spacing */
-        @media (max-width: 768px) {
-            :root {
-                --size-spacing-base: 0.875rem;
-            }
-            .nav-link {
-                padding: 0.625rem 0.875rem;
-            }
-        }
-
         /* No-JS fallback */
         .no-js .tab-content > div {
             display: block;
