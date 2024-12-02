@@ -255,6 +255,7 @@ label::before {
 }
 
 .media-container {
+    background-color: var(--color_theme_surface);
     height: 100%;
     /* Make media container fill tab pane */
 }
