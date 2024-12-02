@@ -1,0 +1,86 @@
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://therealtimex.github.io">
+
+
+    <link rel="stylesheet" type="text/css" href="https://therealtimex.github.io/rtlibrary/css/bootstrap_v5.1.3.css">
+    <link rel="stylesheet" type="text/css" href="https://therealtimex.github.io/rtlibrary/css/style.css">
+    <script src="https://therealtimex.github.io/rtlibrary/js/debt-chart-init.js"></script>
+    <style>
+        :root {
+            --color_theme_primary: ##__COLOR_THEME_PRIMARY__##;
+            --color_theme_secondary: ##__COLOR_THEME_SECONDARY__##;
+            --color_theme_accent: ##__COLOR_THEME_ACCENT__##;
+            --color_theme_success: ##__COLOR_THEME_SUCCESS__##;
+            --color_theme_info: ##__COLOR_THEME_INFO__##;
+            --color_theme_warning: ##__COLOR_THEME_WARNING__##;
+            --color_theme_danger: ##__COLOR_THEME_DANGER__##;
+            --color_theme_background: ##__COLOR_THEME_BACKGROUND__##;
+            --color_theme_surface: ##__COLOR_THEME_SURFACE__##;
+            --color_theme_text_primary: ##__COLOR_THEME_TEXT_PRIMARY__##;
+            --color_theme_text_secondary: ##__COLOR_THEME_TEXT_SECONDARY__##;
+            --color_theme_text_disabled: ##__COLOR_THEME_TEXT_DISABLED__##;
+            --color_theme_neutral_light: ##__COLOR_THEME_NEUTRAL_LIGHT__##;
+            --color_theme_neutral_medium: ##__COLOR_THEME_NEUTRAL_MEDIUM__##;
+            --color_theme_neutral_dark: ##__COLOR_THEME_NEUTRAL_DARK__##;
+            --color_theme_border: ##__COLOR_THEME_BORDER__##;
+            --color_theme_focus: ##__COLOR_THEME_FOCUS__##;
+            --color_theme_error_background: ##__COLOR_THEME_ERROR_BACKGROUND__##;
+            --color_theme_error_text: ##__COLOR_THEME_ERROR_TEXT__##;
+            --color_theme_link: ##__COLOR_THEME_LINK__##;
+            --color_theme_shadow: ##__COLOR_THEME_SHADOW__##;
+
+            --size-spacing-small: 0.75rem;
+            --size-spacing-medium: 1rem;
+            --size-spacing-large: 2rem;
+            --size-spacing-base: var(--size-spacing-medium);
+
+            .st-input {
+                padding: 4px 8px 4px 8px;
+                width: 200px;
+                border: none;
+                border-bottom: 1px solid #757575;
+                letter-spacing: 0.2em;
+                background-color: #eee;
+            }
+
+            .st-button {
+                padding: 4px 8px 4px 8px;
+                background-color: var(--color_theme_primary);
+                color: white;
+                border: none;
+            }
+
+            .custom-chart {
+                border: 2px solid gray;
+                margin: 8px 0px 8px 0px;
+            }
+
+        }
+    </style>
+</header>
+
+<body style="width:100%;background-color: white;padding:4px;margin:0px;" class="theme-light"
+    data-highlight="highlight-red" data-gradient="body-default">
+    <div style="padding:4px;background-color:#f2f2f2;color:black;">
+        <b>Exchange rate</b><br>
+        <label for="xrate_2vnd">USD to VND:</label>
+        <input class="st-input" type="number" id="xrate_2vnd" value="24500"> <button class="st-button"
+            onclick="adddata()" id="stupdate">Update</button>
+    </div>
+    <div style="background-color:#f2f2f2;text-align:center;color:black;">
+        <b>Biểu đồ công nợ theo tháng</b><br>(Đơn vị: nghìn VNĐ)<br>
+        <div style="text-align:left;font-size: smaller;"><i>* Còn lại = Phải thu - Đã thu; Đã thu: Thu đã duyệt; Báo thu: thu chưa duyệt</i></div>
+    </div>
+    <div class="custom-chart2">
+        <canvas id="myChart2" width="400" height="200"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://therealtimex.github.io/rtlibrary/js/bootstrap.min_v5.1.3.js"></script>
+    <script type="text/javascript" src="https://therealtimex.github.io/rtlibrary/js/custom.js"></script>
+</body>
