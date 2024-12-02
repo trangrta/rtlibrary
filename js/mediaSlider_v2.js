@@ -105,6 +105,9 @@ class MediaSlider {
     }
 
     createMediaElement(url) {
+        if (!url) {
+            return `<div style="display: flex; justify-content: center; align-items: center; height: 40vh; font-weight: bold; color: #666;">📄 No documents 📋</div>`;
+        }
         const mediaType = this.detectMediaType(url);
         switch(mediaType) {
             case 'image':
