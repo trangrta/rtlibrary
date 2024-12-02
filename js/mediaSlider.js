@@ -127,7 +127,8 @@ class MediaSlider {
 
     createSlider() {
         if (this.mediaUrls.length === 0) {
-            document.getElementById(this.containerId).innerHTML = '<div><i class="bi bi-file-earmark-x" title="Not available"></i></div>';
+            document.getElementById(this.containerId).innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-weight: bold;">
+    📷 No media available 🎬</div>';
             return; // Exit if there are no media URLs
         }
 
