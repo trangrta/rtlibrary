@@ -291,3 +291,25 @@ label::before {
     height: 100%;
     border: 0;
 }
+
+/* Fin manager */
+.st-input {
+    padding: 4px 8px 4px 8px;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    letter-spacing: 0.2em;
+    background-color: #eee;
+}
+
+.st-button {
+    padding: 4px 8px 4px 8px;
+    background-color: var(--color_theme_primary);
+    color: white;
+    border: none;
+}
+
+.custom-chart {
+    border: 2px solid gray;
+    margin: 8px 0px 8px 0px;
+}
