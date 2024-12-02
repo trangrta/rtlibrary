@@ -106,7 +106,7 @@ class MediaSlider {
 
     createMediaElement(url) {
         if (!url) {
-            return `<i class="bi bi-file-earmark-x" title="Documents not available"></i>`;
+            return `<div style="display: flex; justify-content: center; align-items: center; height: 40vh; font-weight: bold; color: #666;">📄 No documents 📋</div>`;
         }
         const mediaType = this.detectMediaType(url);
         switch(mediaType) {
@@ -127,7 +127,7 @@ class MediaSlider {
 
     createSlider() {
         if (this.mediaUrls.length === 0) {
-            document.getElementById(this.containerId).innerHTML = '<div>Documents unavailable</div>';
+            document.getElementById(this.containerId).innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 40vh; font-weight: bold; color: #666;">📄 No documents 📋</div>';
             return; // Exit if there are no media URLs
         }
 
