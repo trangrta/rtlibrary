@@ -105,6 +105,9 @@ class MediaSlider {
     }
 
     createMediaElement(url) {
+        if (!url) {
+            return `<i class="bi bi-file-earmark-x" title="Not available"></i>`;
+        }
         const mediaType = this.detectMediaType(url);
         switch(mediaType) {
             case 'image':
@@ -124,7 +127,7 @@ class MediaSlider {
 
     createSlider() {
         if (this.mediaUrls.length === 0) {
-            document.getElementById(this.containerId).innerHTML = '<div>No media available</div>';
+            document.getElementById(this.containerId).innerHTML = '<div><i class="bi bi-file-earmark-x" title="Not available"></i></div>';
             return; // Exit if there are no media URLs
         }
 
