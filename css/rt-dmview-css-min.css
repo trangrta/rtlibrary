@@ -237,8 +237,8 @@ label::before {
 }
 
 .tab-content {
-    height: 100vh;
-    /* 100% of viewport height */
+    height: 50vh;
+    /* 50% of viewport height */
     position: relative;
 }
 
