@@ -237,9 +237,8 @@ label::before {
 }
 
 .tab-content {
-    height: 35vh;
-    /* 35% of viewport height */
-    position: relative;
+    height: 45vh;
+    /* 45% of viewport height */
 }
 
 .tab-pane {
