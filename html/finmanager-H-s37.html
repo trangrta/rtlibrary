@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iframe container with CSS spinner">
+    <title>Frame Container</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container styles */
+        .iframe-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Iframe styles */
+        .iframe-content {
+            width: 100%;
+            height: 500px;
+            border: none;
+            background-color: #ffffff;
+        }
+
+        /* Spinner container */
+        .spinner-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+
+        /* Spinner animation */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Loading state */
+        .loading .spinner-wrapper {
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-height: 600px) {
+            .iframe-content {
+                height: 90vh;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.iframe-container');
+            const iframe = document.querySelector('.iframe-content');
+
+            // Show spinner when loading starts
+            container.classList.add('loading');
+
+            // Hide spinner when iframe loads
+            iframe.addEventListener('load', function() {
+                container.classList.remove('loading');
+            });
+
+            // Hide spinner if iframe fails to load
+            iframe.addEventListener('error', function() {
+                container.classList.remove('loading');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="iframe-container">
+        <div class="spinner-wrapper">
+            <div class="spinner"></div>
+        </div>
+        <iframe 
+            class="iframe-content"
+            src="##current.args.sheet_url##"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    </div>
+</body>
+</html>
